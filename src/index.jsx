@@ -6,7 +6,7 @@ ReactDOM.render(
   document.getElementById('view')
 )
 
-import CommentBox from './scripts/CommentBox.jsx'
+import CommentBox from './components/CommentBox.jsx'
 
 ReactDOM.render(
   <CommentBox />,
