@@ -1,11 +1,14 @@
-import ReactDOMServer from 'react-dom/server';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const Hello = (props) => {
-  <div>
-    Hello, {props.name}!
-  </div>
-};
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('view')
+)
 
-ReactDOMServer.renderToString(
-  <Hello name="World" />
+import CommentBox from './scripts/CommentBox.jsx'
+
+ReactDOM.render(
+  <CommentBox />,
+  document.getElementById('content')
 );
