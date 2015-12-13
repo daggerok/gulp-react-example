@@ -2,7 +2,7 @@ import React           from "react"
 import Description     from "./Description.jsx"
 import DescriptionList from "./DescriptionList.jsx"
 
-var Descriptions = React.createClass({
+module.exports = React.createClass({
   render: () => {
     var items = [
       { 
@@ -26,5 +26,3 @@ var Descriptions = React.createClass({
     )
   }
 })
-
-module.exports = Descriptions

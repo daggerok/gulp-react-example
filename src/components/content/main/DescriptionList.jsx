@@ -1,7 +1,7 @@
 import React from "react";
 import Description from "./Description.jsx"
 
-class DescriptionList extends React.Component {
+export default class DescriptionList extends React.Component {
   constructor(props) {
     super(props);
     this.displayName = "DescriptionList";
@@ -16,5 +16,3 @@ class DescriptionList extends React.Component {
     );
   }
 }
-
-export default DescriptionList;

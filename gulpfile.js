@@ -6,7 +6,7 @@ jsxExt     = '.jsx',
 htmlExt    = '.html',
 allsrc     = src + '**/*',
 build      = 'dist'
-require("colors")
+require('colors')
 
 log = (error) => {
   console.log([

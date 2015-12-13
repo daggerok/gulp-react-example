@@ -1,6 +1,6 @@
 import React from "react";
 
-class Description extends React.Component {
+export default class Description extends React.Component {
   constructor(props) {
     super(props);
     this.displayName = "Description";
@@ -14,5 +14,3 @@ class Description extends React.Component {
     );
   }
 }
-
-export default Description;
