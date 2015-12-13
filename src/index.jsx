@@ -1,14 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React    from "react"
+import ReactDOM from "react-dom"
+import Content  from "./components/Content.jsx"
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('view')
-)
-
-import CommentBox from './components/CommentBox.jsx'
-
-ReactDOM.render(
-  <CommentBox />,
-  document.getElementById('content')
-);
+ReactDOM.render(<Content />, document.getElementById("ui"))
