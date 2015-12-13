@@ -7,8 +7,5 @@ cache:
 script:
   - npm run build
 notifications:
-  email:
-    recipients:
-      - daggerok@gmail.com
-    on_failure: change # always
-    on_success: never
+  on_failure: change # always|never
+  on_success: change
