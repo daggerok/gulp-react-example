@@ -83,14 +83,15 @@
 	// model.get('recipes[0]["name", "instructions"]')
 	// model.get('recipes[0].name')
 	// model.get('recipes[0..1]["name", "instructions"]')
-	model.get('recipes[0..1].ingredients[0..9]')
+	// model.get('recipes[0..1].ingredients[0..9].name')
+	model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
 	  .then( data => {
 	    console.log(data)
 	  })
 
 	const App = React.createClass({displayName: "App",
 	  render() {
-	    return React.createElement("h1", null, "Hello, World!")
+	    return React.createElement("h1", null, "Hey!")
 	  }
 	});
 
