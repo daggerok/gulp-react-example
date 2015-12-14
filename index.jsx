@@ -93,8 +93,7 @@ const Recipe = React.createClass({
       recipe() {
         return _.union( 
           Name.queries.recipe(), 
-          Instructions.queries.recipe(),
-          Authors.queries.recipe()
+          Instructions.queries.recipe()
         )
       },
       ingredients() {
@@ -108,7 +107,6 @@ const Recipe = React.createClass({
         <Name {..._.pick(this.props, Name.queries.recipe())} />
         <Instructions instructions={this.props.instructions} />
         <Ingredients ingredients={this.props.ingredients} />
-        <Authors authors={this.props.authors} />
       </div>
     )
   }
@@ -117,12 +115,17 @@ const Name = React.createClass({
   statics: {
     queries: {
       recipe() {
-        return ['name']
+        return ['name', 'authors']
       }
     }
   },
   render() {
-    return <h1>name: {this.props.name}</h1>
+    return (
+      <div>
+        <h1>name: {this.props.name}</h1>
+        <pre>Authors: {JSON.stringify(this.props.authors)}</pre>
+      </div>
+    )
   }
 });
 
@@ -149,19 +152,6 @@ const Ingredients = React.createClass({
   },
   render() {
     return <h3>Ingredients: {JSON.stringify(this.props.ingredients)}</h3>
-  }
-});
-
-const Authors = React.createClass({
-  statics: {
-    queries: {
-      recipe() {
-        return ['authors']
-      }
-    }
-  },
-  render() {
-    return <div>Aithors: {JSON.stringify(this.props.authors)}</div>
   }
 });
 
