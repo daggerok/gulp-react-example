@@ -1,7 +1,7 @@
 gulp-react-example [![build](https://api.travis-ci.org/daggerok/gulp-react-example.svg?branch=webpack)](https://api.travis-ci.org/daggerok/gulp-react-example.svg?branch=webpack)
 ==================
 
-let's create (transform) src/react.html using react components
+using npm scripts, webpack, falcor data processing and react components
     
   ```
   npm start

@@ -1,14 +1,14 @@
 {
   "name": "webpack-react-example",
   "version": "1.0.0",
-  "description": "webpack react example",
+  "description": "npm scripts + webpack, falcor data processing and react components",
   "main": "src/index.jsx",
   "scripts": {
     "webpack": "webpack",
     "prewebpack": "npm install",
-    "build": "npm run webpack --progress --colors",
+    "build": "npm run webpack --progress --colors --display-error-details",
     "prestart": "npm install",
-    "start": "./node_modules/.bin/webpack --progress --colors --watch --display-error-details"
+    "start": "./node_modules/.bin/webpack --progress --colors --display-error-details --watch "
   },
   "repository": {
     "type": "git",
