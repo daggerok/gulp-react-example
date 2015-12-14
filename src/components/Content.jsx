@@ -15,6 +15,18 @@ var Content = React.createClass({
         <Nav />
         <GetStarted />
         <Main />
+        <form>
+        {this.props.options.map(function(option) {
+          return (
+            <input 
+              type="radio"
+              name="value"
+              value={option.value}
+              checked={option.checked}
+              key={option.label} />
+          )
+        })}
+        </form>
         <Footer />
       </div>
     )

@@ -5,6 +5,7 @@ src        = 'src/',
 jsxExt     = '.jsx',
 htmlExt    = '.html',
 allsrc     = src + '**/*',
+allJs      = allsrc + '.js'
 build      = 'dist'
 require('colors')
 
@@ -32,14 +33,22 @@ gulp.task('jsx', () => {
     .pipe(gulp.dest(build))
 })
 
-gulp.task('html', () => {
+gulp.task('html', ['js'], () => {
   return gulp.src(src + 'index' + htmlExt, {base: src})
+    .pipe(gulp.dest(build))
+})
+
+gulp.task('js', () => {
+  gulp.src('node_modules/hoverboard/dist/hoverboard.min.js')
+    .pipe(gulp.dest(build))
+  return gulp.src(allJs, {base: src})
     .pipe(gulp.dest(build))
 })
 
 gulp.task('default', ['jsx', 'html'])
 
 gulp.task('watch', ['default'], () => {
+  gulp.watch(allJs, ['js'])
   gulp.watch(allsrc + jsxExt, ['jsx'])
   gulp.watch(allsrc + htmlExt, ['html'])
 })
