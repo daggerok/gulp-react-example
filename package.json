@@ -8,7 +8,7 @@
     "prewebpack": "npm install",
     "build": "npm run webpack --progress --colors",
     "prestart": "npm install",
-    "start": "./node_modules/.bin/webpack --progress --colors --watch"
+    "start": "./node_modules/.bin/webpack --progress --colors --watch --display-error-details"
   },
   "repository": {
     "type": "git",
