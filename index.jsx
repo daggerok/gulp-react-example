@@ -58,9 +58,9 @@ const App = React.createClass({
         <Recipes 
           recipes={[
             {
-              name: 'name',
-              instructions: 'instruction',
-              ingredients: [ 'ingredient 1', 'ingredient 2' ],
+              name: 'new name',
+              instructions: 'new instruction',
+              ingredients: [ 'new ingredient 1', 'new ingredient 2' ],
               authors: [ 'Max', 'Serg' ]
             }
           ]} />
@@ -85,7 +85,7 @@ const Recipe = React.createClass({
   render() {
     return (
       <div>
-        <Tittle tittle={this.props.tittle} />
+        <Name name={this.props.name} />
         <Instructions instructions={this.props.instructions} />
         <Ingredients ingredients={this.props.ingredients} />
         <Authors authors={this.props.authors} />
@@ -94,15 +94,15 @@ const Recipe = React.createClass({
   }
 });
 
-const Tittle = React.createClass({
+const Name = React.createClass({
   render() {
-    return <h1>{this.props.tittle}</h1>
+    return <h1>name: {this.props.name}</h1>
   }
 });
 
 const Instructions = React.createClass({
   render() {
-    return <h2>{this.props.instructions}</h2>
+    return <h2>Instructions: {this.props.instructions}</h2>
   }
 });
 
