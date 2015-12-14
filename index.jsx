@@ -105,7 +105,7 @@ const Recipe = React.createClass({
     return (
       <div>
         <Name {..._.pick(this.props, Name.queries.recipe())} />
-        <Instructions instructions={this.props.instructions} />
+        <Instructions {..._.pick(this.props, Instructions.queries.recipe())} />
         <Ingredients ingredients={this.props.ingredients} />
       </div>
     )
