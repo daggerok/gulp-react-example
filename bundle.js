@@ -363,7 +363,7 @@
 	 * @providesModule ReactCurrentOwner
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Keeps track of the current owner.
@@ -371,7 +371,7 @@
 	 * The current owner is the component who should own any components that are
 	 * currently being constructed.
 	 */
-	;
+
 	var ReactCurrentOwner = {
 
 	  /**
@@ -1102,7 +1102,7 @@
 	 * @providesModule invariant
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Use invariant() to assert state which your program assumes to be true.
@@ -1115,7 +1115,6 @@
 	 * will remain to ensure logic does not differ in production.
 	 */
 
-	;
 	var invariant = function (condition, format, a, b, c, d, e, f) {
 	  if (process.env.NODE_ENV !== 'production') {
 	    if (format === undefined) {
@@ -1394,13 +1393,13 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * ReactPerf is a general AOP system designed to measure performance. This
 	 * module only has the hooks: see ReactDefaultPerf for the analysis tool.
 	 */
-	;
+
 	var ReactPerf = {
 	  /**
 	   * Boolean to enable/disable measurement. Set to false by default to prevent
@@ -4539,7 +4538,7 @@
 	 * @providesModule forEachAccumulated
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * @param {array} arr an "accumulation" of items which is either an Array or
@@ -4548,7 +4547,7 @@
 	 * handling the case when there is exactly one item (and we do not need to
 	 * allocate an array).
 	 */
-	;
+
 	var forEachAccumulated = function (arr, cb, scope) {
 	  if (Array.isArray(arr)) {
 	    arr.forEach(cb, scope);
@@ -5072,11 +5071,11 @@
 	 * @providesModule ReactEmptyComponentRegistry
 	 */
 
-	'use strict'
+	'use strict';
 
 	// This registry keeps track of the React IDs of the components that rendered to
 	// `null` (in reality a placeholder such as `noscript`)
-	;
+
 	var nullComponentIDsRegistry = {};
 
 	/**
@@ -5468,7 +5467,7 @@
 	 * @providesModule ReactInstanceMap
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * `ReactInstanceMap` maintains a mapping from a public facing stateful
@@ -5478,7 +5477,7 @@
 	 */
 
 	// TODO: Replace this with ES6: var ReactInstanceMap = new Map();
-	;
+
 	var ReactInstanceMap = {
 
 	  /**
@@ -7940,7 +7939,7 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Given a `prevElement` and `nextElement`, determines if the existing
@@ -7953,7 +7952,7 @@
 	 * @return {boolean} True if the existing instance should be updated.
 	 * @protected
 	 */
-	;
+
 	function shouldUpdateReactComponent(prevElement, nextElement) {
 	  var prevEmpty = prevElement === null || prevElement === false;
 	  var nextEmpty = nextElement === null || nextElement === false;
@@ -9940,7 +9939,7 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Gets the target node from a native browser event by accounting for
@@ -9949,7 +9948,7 @@
 	 * @param {object} nativeEvent Native browser event.
 	 * @return {DOMEventTarget} Target node.
 	 */
-	;
+
 	function getEventTarget(nativeEvent) {
 	  var target = nativeEvent.target || nativeEvent.srcElement || window;
 	  // Safari may fire events on text nodes (Node.TEXT_NODE is 3).
@@ -9974,12 +9973,12 @@
 	 * @providesModule isTextInputElement
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * @see http://www.whatwg.org/specs/web-apps/current-work/multipage/the-input-element.html#input-type-attr-summary
 	 */
-	;
+
 	var supportedInputTypes = {
 	  'color': true,
 	  'date': true,
@@ -10353,14 +10352,13 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Translation from modifier key to the associated property in the event.
 	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
 	 */
 
-	;
 	var modifierKeyToProp = {
 	  'Alt': 'altKey',
 	  'Control': 'ctrlKey',
@@ -11817,12 +11815,12 @@
 	 * @providesModule focusNode
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * @param {DOMElement} node input/textarea to focus
 	 */
-	;
+
 	function focusNode(node) {
 	  // IE8 can throw "Can't move focus to the control because it is invisible,
 	  // not enabled, or of a type that does not accept the focus." for all kinds of
@@ -12030,12 +12028,12 @@
 	 * @providesModule CSSProperty
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * CSS properties which accept numbers but are not in units of "px".
 	 */
-	;
+
 	var isUnitlessNumber = {
 	  animationIterationCount: true,
 	  boxFlex: true,
@@ -12400,7 +12398,7 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Memoizes the return value of a function that accepts one string argument.
@@ -12408,7 +12406,7 @@
 	 * @param {function} callback
 	 * @return {function}
 	 */
-	;
+
 	function memoizeStringOnly(callback) {
 	  var cache = {};
 	  return function (string) {
@@ -13152,10 +13150,10 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/* global Symbol */
-	;
+
 	var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
 	var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
 
@@ -15030,7 +15028,7 @@
 	 * @typechecks
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Gets the scroll position of the supplied element or window.
@@ -15042,7 +15040,7 @@
 	 * @param {DOMWindow|DOMElement} scrollable
 	 * @return {object} Map with `x` and `y` keys.
 	 */
-	;
+
 	function getUnboundedScrollPosition(scrollable) {
 	  if (scrollable === window) {
 	    return {
@@ -16647,7 +16645,7 @@
 	 * @providesModule getNodeForCharacterOffset
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Given any node return the first leaf node without children.
@@ -16655,7 +16653,7 @@
 	 * @param {DOMElement|DOMTextNode} node
 	 * @return {DOMElement|DOMTextNode}
 	 */
-	;
+
 	function getLeafNode(node) {
 	  while (node && node.firstChild) {
 	    node = node.firstChild;
@@ -16971,7 +16969,7 @@
 	 * @typechecks
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * Size of the reactRoot ID space. We generate random numbers for React root
@@ -16979,7 +16977,7 @@
 	 * get confused. In the future we need a way to generate GUIDs but for
 	 * now this will work on a smaller scale.
 	 */
-	;
+
 	var GLOBAL_MOUNT_POINT_MAX = Math.pow(2, 53);
 
 	var ServerReactRootIndex = {
@@ -17775,7 +17773,7 @@
 	 * @typechecks static-only
 	 */
 
-	'use strict'
+	'use strict';
 
 	/**
 	 * `charCode` represents the actual "character code" and is safe to use with
@@ -17787,7 +17785,7 @@
 	 * @param {object} nativeEvent Native browser event.
 	 * @return {number} Normalized `charCode` property.
 	 */
-	;
+
 	function getEventCharCode(nativeEvent) {
 	  var charCode;
 	  var keyCode = nativeEvent.keyCode;
