@@ -49,11 +49,72 @@ const model = new falcor.Model({
 // model.get('recipes[0..1].ingredients[0..9].name')
 // model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
 model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions", "authors"]')
-.then( data => console.log(data))
+  .then( data => console.log(data))
 
 const App = React.createClass({
   render() {
-    return <h1>Hey!</h1>
+    return (
+      <div>
+        <Recipes 
+          recipes={[
+            {
+              name: 'name',
+              instructions: 'instruction',
+              ingredients: [ 'ingredient 1', 'ingredient 2' ],
+              authors: [ 'Max', 'Serg' ]
+            }
+          ]} />
+      </div>
+    )
+  }
+});
+
+const Recipes = React.createClass({
+  render() {
+    return (
+      <div>
+        {this.props.recipes.map( recipe => {
+          return <Recipe {... recipe} key={recipe} />
+        })}
+      </div>
+    )
+  }
+});
+
+const Recipe = React.createClass({
+  render() {
+    return (
+      <div>
+        <Tittle tittle={this.props.tittle} />
+        <Instructions instructions={this.props.instructions} />
+        <Ingredients ingredients={this.props.ingredients} />
+        <Authors authors={this.props.authors} />
+      </div>
+    )
+  }
+});
+
+const Tittle = React.createClass({
+  render() {
+    return <h1>{this.props.tittle}</h1>
+  }
+});
+
+const Instructions = React.createClass({
+  render() {
+    return <h2>{this.props.instructions}</h2>
+  }
+});
+
+const Ingredients = React.createClass({
+  render() {
+    return <div>Ingredients: {JSON.stringify(this.props.ingredients)}</div>
+  }
+});
+
+const Authors = React.createClass({
+  render() {
+    return <div>Aithors: {JSON.stringify(this.props.authors)}</div>
   }
 });
 
