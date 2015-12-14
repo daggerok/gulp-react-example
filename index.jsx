@@ -49,9 +49,7 @@ const model = new falcor.Model({
 // model.get('recipes[0..1].ingredients[0..9].name')
 // model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
 model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions", "authors"]')
-  .then( data => {
-    console.log(data)
-  })
+.then( data => console.log(data))
 
 const App = React.createClass({
   render() {
