@@ -46,7 +46,9 @@
 
 	const React = __webpack_require__(1);
 	const ReactDOM = __webpack_require__(158);
-	const ref = falcor.Model.ref
+
+	const $ref = falcor.Model.ref
+
 	const model = new falcor.Model({
 	  cache: {
 	    ingredientsById: {
@@ -64,16 +66,24 @@
 	        name: 'Cookies',
 	        instructions: 'Bake them lol',
 	        ingredients: [
-	          ref('ingredientsById[1]'),
-	          ref('ingredientsById[2]')
-	        ]
+	          $ref('ingredientsById[1]'),
+	          $ref('ingredientsById[2]')
+	        ],
+	        authors: {
+	          $type: 'atom',
+	          value: ['Max', 'Dag', 'Other']
+	        }
 	      },
 	      {
 	        name: 'Brownies',
 	        instructions: 'Aslo bake them rolf',
 	        ingredients: [
-	          ref('ingredientsById[2]')
-	        ]
+	          $ref('ingredientsById[2]')
+	        ],
+	        authors: {
+	          $type: 'atom',
+	          value: ['Alex', 'Sam']
+	        }
 	      }
 	    ]
 	  }
@@ -84,7 +94,8 @@
 	// model.get('recipes[0].name')
 	// model.get('recipes[0..1]["name", "instructions"]')
 	// model.get('recipes[0..1].ingredients[0..9].name')
-	model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
+	// model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
+	model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions", "authors"]')
 	  .then( data => {
 	    console.log(data)
 	  })
