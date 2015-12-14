@@ -1,5 +1,5 @@
-import React    from "react"
-import ReactDOM from "react-dom"
-import Content  from "./components/Content.jsx"
+React = require("react") // global
+const ReactDOM = require("react-dom"),
+Content = require("./components/Content.jsx")
 
 ReactDOM.render(<Content />, document.getElementById("ui"))

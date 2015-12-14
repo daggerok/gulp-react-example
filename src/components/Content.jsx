@@ -1,22 +1,19 @@
-import React      from "react"
-
-export default class Content extends React.Component {
-  constructor(props) {
-    super(props)
-    this.displayName = "Footer"
-    this.state = { count: props.init }
-  }
-  increment() {
-    this.setState({ count: this.state.count + 1 })
-  }
-  render() {
+module.exports = React.createClass({
+  getInitialState: function() {
+    return {
+      count: 0
+    }
+  },
+  onClick: function(event) {
+    this.setState({
+      count: this.state.count + 1
+    })
+  },
+  render: function() {
     return (
-      <div onClick={this.increment.bind(this)}>
+      <div onClick={this.onClick}>
         clicked {this.state.count} times.
       </div>
-    )
+    );
   }
-}
-
-Content.propsTypes = { init: React.PropTypes.number.isRequired }
-Content.defaultProps = { init: 0 }
+})
