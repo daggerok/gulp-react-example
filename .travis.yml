@@ -7,5 +7,5 @@ cache:
 script:
   - npm run build
 notifications:
-  on_failure: change # always|never
+  on_failure: never # always|never
   on_success: change
