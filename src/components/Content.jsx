@@ -1,24 +1,22 @@
 import React      from "react"
-import ReactDOM   from "react-dom"
-import Nav        from "./content/Nav.jsx"
-import GetStarted from "./content/GetStarted.jsx"
-import Main       from "./content/Main.jsx"
-import Footer     from "./content/Footer.jsx"
 
-var Content = React.createClass({
-  onChange: (event) => {
-    console.log(event.target)
-  },
-  render: function() {
+export default class Content extends React.Component {
+  constructor(props) {
+    super(props)
+    this.displayName = "Footer"
+    this.state = { count: props.init }
+  }
+  increment() {
+    this.setState({ count: this.state.count + 1 })
+  }
+  render() {
     return (
-      <div onClick={this.onChange}>
-        <Nav />
-        <GetStarted />
-        <Main />
-        <Footer />
+      <div onClick={this.increment.bind(this)}>
+        clicked {this.state.count} times.
       </div>
     )
   }
-})
+}
 
-module.exports = Content
+Content.propsTypes = { init: React.PropTypes.number.isRequired }
+Content.defaultProps = { init: 0 }
