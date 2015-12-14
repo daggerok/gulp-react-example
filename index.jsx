@@ -1,5 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+const React = require('react')
+const ReactDOM = require('react-dom')
+const _ = require('lodash')
 
 const $ref = falcor.Model.ref
 const $atom = falcor.Model.atom
@@ -24,9 +25,7 @@ const model = new falcor.Model({
           $ref('ingredientsById[1]'),
           $ref('ingredientsById[2]')
         ],
-        authors: {
-          $atom: ['Max', 'Dag', 'Other']
-        }
+        authors: $atom(['Max', 'Dag', 'Other'])
       },
       {
         name: 'Brownies',
@@ -34,9 +33,7 @@ const model = new falcor.Model({
         ingredients: [
           $ref('ingredientsById[2]')
         ],
-        authors: {
-          $atom: ['Alex', 'Sam']
-        }
+        authors: $atom(['Alex', 'Sam'])
       }
     ]
   }
@@ -48,33 +45,42 @@ const model = new falcor.Model({
 // model.get('recipes[0..1]["name", "instructions"]')
 // model.get('recipes[0..1].ingredients[0..9].name')
 // model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions"]')
-model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions", "authors"]')
-  .then( data => console.log(data))
+// model.get('recipes[0..1].ingredients[0..9]["name", "description"]', 'recipes[0..1]["name", "instructions", "authors"]')
+//   .then( data => console.log(data))
 
 const App = React.createClass({
   render() {
     return (
       <div>
-        <Recipes 
-          recipes={[
-            {
-              name: 'new name',
-              instructions: 'new instruction',
-              ingredients: [ 'new ingredient 1', 'new ingredient 2' ],
-              authors: [ 'Max', 'Serg' ]
-            }
-          ]} />
+        <Recipes />
       </div>
     )
   }
 });
 
 const Recipes = React.createClass({
+  getInitialState() {
+    return {
+      recipes: []
+    }
+  },
+  componentDidMount() {
+    // console.log(JSON.stringify(['recipes', { to: 9 }, 'ingredients', { to: 9 }, Ingredients.queries.ingredients()], null, 2))
+    model.get(
+      ['recipes', { to: 9 }, Recipe.queries.recipe()],
+      ['recipes', { to: 9 }, 'ingredients', { to: 9 }, Ingredients.queries.ingredients()]
+    ).then( data => {
+      this.setState({
+        recipes: _.values(data.json.recipes)
+      })
+      // console.log(_.values(data.json.recipes))
+    })
+  },
   render() {
     return (
       <div>
-        {this.props.recipes.map( recipe => {
-          return <Recipe {... recipe} key={recipe} />
+        {this.state.recipes.map( (recipe, index) => {
+          return <Recipe {... recipe} key={index} />
         })}
       </div>
     )
@@ -82,6 +88,20 @@ const Recipes = React.createClass({
 });
 
 const Recipe = React.createClass({
+  statics: {
+    queries: {
+      recipe() {
+        return _.union( 
+          Name.queries.recipe(), 
+          Instructions.queries.recipe(),
+          Authors.queries.recipe()
+        )
+      },
+      ingredients() {
+        return Ingredients.queries.ingredients()
+      }
+    }
+  },
   render() {
     return (
       <div>
@@ -93,26 +113,53 @@ const Recipe = React.createClass({
     )
   }
 });
-
 const Name = React.createClass({
+  statics: {
+    queries: {
+      recipe() {
+        return ['name']
+      }
+    }
+  },
   render() {
     return <h1>name: {this.props.name}</h1>
   }
 });
 
 const Instructions = React.createClass({
+  statics: {
+    queries: {
+      recipe() {
+        return ['instructions']
+      }
+    }
+  },
   render() {
     return <h2>Instructions: {this.props.instructions}</h2>
   }
 });
 
 const Ingredients = React.createClass({
+  statics: {
+    queries: {
+      ingredients() {
+        return ['name', 'description']
+      }
+    }
+  },
   render() {
     return <h3>Ingredients: {JSON.stringify(this.props.ingredients)}</h3>
   }
 });
 
 const Authors = React.createClass({
+  statics: {
+    queries: {
+      recipe() {
+        return ['authors']
+      }
+    }
+  },
   render() {
     return <div>Aithors: {JSON.stringify(this.props.authors)}</div>
   }
