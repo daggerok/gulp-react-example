@@ -2,6 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 const $ref = falcor.Model.ref
+const $atom = falcor.Model.atom
 
 const model = new falcor.Model({
   cache: {
@@ -24,8 +25,7 @@ const model = new falcor.Model({
           $ref('ingredientsById[2]')
         ],
         authors: {
-          $type: 'atom',
-          value: ['Max', 'Dag', 'Other']
+          $atom: ['Max', 'Dag', 'Other']
         }
       },
       {
@@ -35,8 +35,7 @@ const model = new falcor.Model({
           $ref('ingredientsById[2]')
         ],
         authors: {
-          $type: 'atom',
-          value: ['Alex', 'Sam']
+          $atom: ['Alex', 'Sam']
         }
       }
     ]

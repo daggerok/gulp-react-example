@@ -48,6 +48,7 @@
 	const ReactDOM = __webpack_require__(158);
 
 	const $ref = falcor.Model.ref
+	const $atom = falcor.Model.atom
 
 	const model = new falcor.Model({
 	  cache: {
@@ -70,8 +71,7 @@
 	          $ref('ingredientsById[2]')
 	        ],
 	        authors: {
-	          $type: 'atom',
-	          value: ['Max', 'Dag', 'Other']
+	          $atom: ['Max', 'Dag', 'Other']
 	        }
 	      },
 	      {
@@ -81,8 +81,7 @@
 	          $ref('ingredientsById[2]')
 	        ],
 	        authors: {
-	          $type: 'atom',
-	          value: ['Alex', 'Sam']
+	          $atom: ['Alex', 'Sam']
 	        }
 	      }
 	    ]
