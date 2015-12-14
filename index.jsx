@@ -108,7 +108,7 @@ const Instructions = React.createClass({
 
 const Ingredients = React.createClass({
   render() {
-    return <div>Ingredients: {JSON.stringify(this.props.ingredients)}</div>
+    return <h3>Ingredients: {JSON.stringify(this.props.ingredients)}</h3>
   }
 });
 
