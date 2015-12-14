@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/daggerok/gulp-react-example#readme",
   "devDependencies": {
-    "html-webpack-plugin": "^1.7.0",
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "falcor": "^0.1.14",
     "jsx-loader": "^0.13.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",

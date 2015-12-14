@@ -1,19 +1,16 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  context: __dirname + "/src",
+  context: __dirname,
   entry: "./index.jsx",
   output: {
-    path: __dirname + "/dist",
-    filename: "./bundle.js"
+    path: __dirname,
+    filename: "bundle.js"
   },
   module: {
     loaders: [
-      { test: /\.jsx$/, loader: "jsx-loader" }
+      { test: /\.jsx$/, loader: "jsx-loader" },
+      { test: /\.js$/, loader: "babel" }
     ]
-  },
-  plugins: [new HtmlWebpackPlugin({
-    template: "src/index.html",
-    inject: "body"
-  })]
+  }
 };
